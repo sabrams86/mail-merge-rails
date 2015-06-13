@@ -1,0 +1,13 @@
+.partial
+  %h2.count
+  - @contactMatrix.each_with_index do |e, i|
+    .preview
+      .close X
+      %p
+        %b To:
+        #{e[0]} #{e[1]} &lt;#{e[2]}&gt;
+      %p
+        %b Subject:
+        #{@replacedSubject[i]}
+      %br
+      %p= @replacedBody[i].html_safe

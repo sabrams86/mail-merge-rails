@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+var displayCount = function(){
+  var count = document.getElementsByClassName('count')[0];
+  var divCount = document.getElementsByClassName('preview').length;
+  count.innerHTML = 'Emails ('+divCount+')';
+}
+
+var close = document.getElementsByClassName('close');
+for (var i = 0; i < close.length; i++){
+  close[i].addEventListener('click', function(){
+    this.parentNode.remove();
+    displayCount();
+  });
+}
+
+var divCount = document.getElementsByClassName('preview').length;
+if (divCount){
+  displayCount();
+}
