@@ -1,20 +1,20 @@
 .content
   %h1.banner= @title
-  %form{:method => 'post', :action => '/'}
-  .row
-    .column
-      .colrow1
-        %p Enter names / emails (one per line):textile
-      .colrow2
-        %textarea.field{:name => 'recipients', :placeholer => 'Joe,Jones,joe@example.com', :rows => '13', :autofocus => ''}
-    .column
-      .colrow1
-        %p Enter the text.  The following substitutions are valid:textile
-        %ul
-          %li {first}
-          %li {last}
-          %li {email}
-      .colrow2
-        %input.field{:type => 'text', :placeholder => 'Subject', :name => 'subject'}
-        %textarea.field{:name => 'emailbody', :placeholder => 'Body', :rows => '10'}
-        %input.submit{:type => 'submit', :value => 'Preview', :name => 'preview'}
+  %form{:method => 'post', :controller => 'home', :action => '/'}
+    .row
+      .column
+        .colrow1
+          %p Enter names / emails (one per line):
+        .colrow2
+          %textarea.field{:name => 'recipients', :placeholder => 'Joe,Jones,joe@example.com', :rows => '13', :autofocus => ''}= @recipients
+      .column
+        .colrow1
+          %p Enter the text.  The following substitutions are valid:textile
+          %ul
+            %li {first}
+            %li {last}
+            %li {email}
+        .colrow2
+          %input.field{:type => 'text', :placeholder => 'Subject', :name => 'subject', :value => @subject}
+          %textarea.field{:name => 'emailbody', :placeholder => 'Body', :rows => '10'}= @body
+          %input.submit{:type => 'submit', :value => 'Preview', :name => 'preview'}
