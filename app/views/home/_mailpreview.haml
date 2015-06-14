@@ -1,6 +1,6 @@
 .partial
   %h2.count
-  - @contactMatrix.each_with_index do |e, i|
+  - @contact_matrix.each_with_index do |e, i|
     .preview
       .close X
       %p
@@ -8,6 +8,6 @@
         #{e[0]} #{e[1]} &lt;#{e[2]}&gt;
       %p
         %b Subject:
-        #{@replacedSubject[i]}
+        #{@replaced_subject[i]}
       %br
-      %p= @replacedBody[i].html_safe
+      %p= @replaced_body[i].html_safe

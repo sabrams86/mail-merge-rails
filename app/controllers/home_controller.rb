@@ -9,11 +9,11 @@ class HomeController < ApplicationController
     @recipients = params[:recipients]
     @subject = params[:subject]
     @body = params[:emailbody]
-    @processedBody = Home.processBody(@body)
-    @contactArray = Home.splitByLine(@recipients)
-    @contactMatrix = Home.splitByComma(@contactArray)
-    @replacedBody = Home.process(@processedBody, @contactMatrix)
-    @replacedSubject = Home.process(@subject, @contactMatrix)
+    @processed_body = Home.process_body(@body)
+    @contact_array = Home.split_by_line(@recipients)
+    @contact_matrix = Home.split_by_comma(@contact_array)
+    @replaced_body = Home.process(@processed_body, @contact_matrix)
+    @replaced_subject = Home.process(@subject, @contact_matrix)
     render 'index'
   end
 
